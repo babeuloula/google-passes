@@ -37,12 +37,10 @@ commands:
                   key: composer-{{ checksum "composer.json" }}
                   paths:
                       - ./vendor
-                      - ./composer.lock
             - persist_to_workspace:
                   root: .
                   paths:
                       - vendor
-                      - composer.lock
 
     phpcs:
         description: "Execute PHPCS"
@@ -57,13 +55,6 @@ commands:
             - run:
                   name: "Execute: make analyse"
                   command: make analyse
-
-    security:
-        description: "Execute Security"
-        steps:
-            - run:
-                  name: "Execute: make security"
-                  command: make security
 
 executors:
     php7_4:
@@ -94,7 +85,6 @@ jobs:
             - restore-composer-cache
             - phpcs
             - phpstan
-            - security
 
     quality_8_0:
         executor: php8_0
@@ -103,7 +93,6 @@ jobs:
             - restore-composer-cache
             - phpcs
             - phpstan
-            - security
 
     quality_8_1:
         executor: php8_1
@@ -112,7 +101,6 @@ jobs:
             - restore-composer-cache
             - phpcs
             - phpstan
-            - security
 
 workflows:
     version: 2.1
