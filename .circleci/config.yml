@@ -42,6 +42,7 @@ commands:
                   root: .
                   paths:
                       - vendor
+                      - composer.lock
 
     phpcs:
         description: "Execute PHPCS"
