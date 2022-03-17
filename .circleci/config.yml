@@ -37,6 +37,7 @@ commands:
                   key: composer-{{ checksum "composer.json" }}
                   paths:
                       - ./vendor
+                      - ./composer.lock
             - persist_to_workspace:
                   root: .
                   paths:
@@ -85,7 +86,7 @@ jobs:
         steps:
             - store-composer-cache
 
-    phpcs_7_4:
+    quality_7_4:
         executor: php7_4
         steps:
             - checkout-alpine
@@ -94,7 +95,7 @@ jobs:
             - phpstan
             - security
 
-    phpcs_8_0:
+    quality_8_0:
         executor: php8_0
         steps:
             - checkout-alpine
@@ -103,7 +104,7 @@ jobs:
             - phpstan
             - security
 
-    phpcs_8_1:
+    quality_8_1:
         executor: php8_1
         steps:
             - checkout-alpine
@@ -117,12 +118,12 @@ workflows:
     Code quality:
         jobs:
             - composer
-            - phpcs_7_4:
+            - quality_7_4:
                   requires:
                       - composer
-            - phpcs_8_0:
+            - quality_8_0:
                   requires:
                       - composer
-            - phpcs_8_1:
+            - quality_8_1:
                   requires:
                       - composer
