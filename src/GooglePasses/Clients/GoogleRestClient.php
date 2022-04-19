@@ -42,8 +42,8 @@ class GoogleRestClient
         return $this->service;
     }
 
-    /** @return ?array<mixed> */
-    public function insertLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
+    /** @return array|null|LoyaltyClass */
+    public function insertLoyaltyClass(LoyaltyClass $loyaltyClass)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
@@ -62,8 +62,8 @@ class GoogleRestClient
         return $response;
     }
 
-    /** @return ?array<mixed> */
-    public function patchLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
+    /** @return array|null|LoyaltyClass */
+    public function patchLoyaltyClass(LoyaltyClass $loyaltyClass)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
@@ -82,8 +82,8 @@ class GoogleRestClient
         return $response;
     }
 
-    /** @return ?array<mixed> */
-    public function updateLoyaltyClass(LoyaltyClass $loyaltyClass): ?array
+    /** @return array|null|LoyaltyClass */
+    public function updateLoyaltyClass(LoyaltyClass $loyaltyClass)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
@@ -102,8 +102,8 @@ class GoogleRestClient
         return $response;
     }
 
-    /** @return ?array<mixed> */
-    public function getLoyaltyClass(string $classId): ?array
+    /** @return array|null|LoyaltyClass */
+    public function getLoyaltyClass(string $classId)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyClassResource();
@@ -122,8 +122,8 @@ class GoogleRestClient
         return $response;
     }
 
-    /** @return ?array<mixed> */
-    public function getLoyaltyObject(string $objectId): ?array
+    /** @return array|null|LoyaltyObject */
+    public function getLoyaltyObject(string $objectId)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
@@ -142,8 +142,8 @@ class GoogleRestClient
         return $response;
     }
 
-    /** @return ?array<mixed> */
-    public function insertLoyaltyObject(LoyaltyObject $loyaltyObject): ?array
+    /** @return array|null|LoyaltyObject */
+    public function insertLoyaltyObject(LoyaltyObject $loyaltyObject)
     {
         $response = null;
         $loyaltyResource = $this->resourcesFactory->makeLoyaltyObjectResource();
@@ -162,6 +162,7 @@ class GoogleRestClient
         return $response;
     }
 
+    /** @return array|null|LoyaltyObject */
     public function updateLoyaltyObject(LoyaltyObject $loyaltyObject)
     {
         $response = null;
